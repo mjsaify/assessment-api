@@ -34,7 +34,7 @@ export const UserSignup = asyncHandler(async (req, res, next) => {
 
     await UserModel.create(parsedInputs.data);
     await SendEmail({
-        to: user.email,
+        to: parsedInputs.data.email,
         subject: "UMS Application",
         text: "Your account has been created successfully",
     });
